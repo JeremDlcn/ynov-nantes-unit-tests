@@ -1,22 +1,36 @@
 const { expect } = require('@jest/globals');
 const Item = require('./Item')
-const mg = await mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
+const mongoose = require('mongoose');
 
-test('rly difficult test', () => {
-    expect(true).toBe(true);
-});
+mongoose.connect('mongodb://mongo:27017/docker-node-mongo', { useNewUrlParser: true, useUnifiedTopology: true })
 
 
-test('Should save item to database', async done => {
-  // Searche one item in the database
-  try {
-    const item = await Item.find()
-    console.log(item);
-  } catch (error) {
-    console.log(error);
-  }
-    
-  // expect(item.name).toBe('Zell')
-  // toBeTruthy()
+
+
+test('Should Create an item', async () => {
+    const item = await Item.create({
+      name: 'test'
+    })
+
+    jest.spyOn(Item, 'findOne').mockReturnValue(Promise.resolve({ name: "test" }))  
+})
+
+test('Should Delete an item', async () => {
+  const item = await Item.create({
+    name: 'test'
+  })
+
+  jest.spyOn(Item, 'findOneAndDelete').mockReturnValue(Promise.resolve({ name: "test" }))
+})
+
+test('Should Update an item', async () => {
+  const item = await Item.create({
+    name: 'test'
+  })
+
+  jest.spyOn(Item, 'findOneAndUpdate').mockReturnValue(Promise.resolve({ name: "test" }))
+})
+
+test('Should Connect', async () => {
   mongoose.connection.close()
-}, 20000)
+})
