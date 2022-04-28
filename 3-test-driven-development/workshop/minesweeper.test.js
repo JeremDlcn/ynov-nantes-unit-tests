@@ -10,7 +10,7 @@ describe("MineSweeper", function() {
         const result = createBoard(n, m);
 
         //THEN
-        const output = `...\n...\n...\n`;
+        const output = `000\n000\n000\n`;
 
         expect(result).toBe(output);
     });
@@ -52,7 +52,7 @@ describe("MineSweeper", function() {
         const res = (result.match(/\*/g) || []).length;
 
         //THEN
-        const output = `.*.\n..*\n...\n`;
+        const output = `1*1\n11*\n001\n`;
         const out = (output.match(/\*/g) || []).length;
 
         expect(res).toBe(out);
