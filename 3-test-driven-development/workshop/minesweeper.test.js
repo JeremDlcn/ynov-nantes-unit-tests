@@ -73,17 +73,20 @@ describe("MineSweeper", function() {
         expect(result).toBe(output);
     });
 
-    test(`check number of field `, function() {
+    test(`check number of field`, function() {
         //GIVEN
-        const board = `*1\n11\n`;
+        const listBoard = [createBoard(2, 2, 1), createBoard(3, 3, 3), createBoard(4, 4, 4)];
 
         //WHEN
-        const result = createGame([board]);
+        const result = createGame(listBoard);
 
         //THEN
-        const output = `Field #1:\n*1\n11\n`;
-
-        expect(result[0]).toBe(output);
+        const output =   [
+            'Field #1:\n*1\n11\n',
+            'Field #2:\n***\n111\n111\n',
+            'Field #3:\n****\n1111\n1111\n1111\n'
+        ];
+        expect(result.toString()).toBe(output.toString());
     });
 
 

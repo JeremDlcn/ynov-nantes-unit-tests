@@ -25,7 +25,7 @@ function createBoard(n, m, mine) {
 function createGame(array) {
     let result = [];
     array.forEach((element, index) => {
-       result.push( "Field #" + (index + 1) + ":\n" + element)
+       result.push( `Field #${index + 1}:\n${element}`)
     });
     return result;
 }
