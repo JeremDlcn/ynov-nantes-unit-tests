@@ -1,0 +1,15 @@
+{
+    "name": "minesweeper",
+    "version": "1.0.0",
+    "description": "TDD with Minesweeper",
+    "scripts": {
+        "test": "jest",
+        "test:watch": "jest --watch",
+        "test:coverage": "jest --coverage"
+    },
+    "license": "MIT",
+    "private": true,
+    "devDependencies": {
+        "jest": "^24.9.0"
+    }
+}
