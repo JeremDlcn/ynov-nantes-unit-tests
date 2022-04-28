@@ -83,7 +83,7 @@ describe("MineSweeper", function() {
         //THEN
         const output = `Field #1:\n*1\n11\n`;
 
-        expect(result).toBe(output);
+        expect(result[0]).toBe(output);
     });
 
 
