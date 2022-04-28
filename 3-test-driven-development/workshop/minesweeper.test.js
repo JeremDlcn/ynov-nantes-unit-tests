@@ -1,4 +1,4 @@
-const { createBoard } = require('./minesweeper');
+const { createBoard, createGame } = require('./minesweeper');
 
 describe("MineSweeper", function() {
     test(`Give a "n" x "m" board`, function() {
@@ -69,6 +69,19 @@ describe("MineSweeper", function() {
 
         //THEN
         const output = `*1\n11\n`;
+
+        expect(result).toBe(output);
+    });
+
+    test(`check number of field `, function() {
+        //GIVEN
+        const board = `*1\n11\n`;
+
+        //WHEN
+        const result = createGame([board]);
+
+        //THEN
+        const output = `Field #1:\n*1\n11\n`;
 
         expect(result).toBe(output);
     });
