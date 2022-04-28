@@ -58,5 +58,20 @@ describe("MineSweeper", function() {
         expect(res).toBe(out);
     });
 
+    test(`check if points are equal to 1 when a mine is nearby`, function() {
+        //GIVEN
+        const n = 2;
+        const m = 2;
+        const mine = 1;
+
+        //WHEN
+        const result = createBoard(n, m, mine);
+
+        //THEN
+        const output = `*1\n11\n`;
+
+        expect(result).toBe(output);
+    });
+
 
 });
