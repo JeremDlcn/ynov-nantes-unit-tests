@@ -1,5 +1,3 @@
-import { createTODO, doneTODO } from './functions';
-
 window.onload = function() {
     fetch('/todo', {
             method: 'GET'
@@ -35,4 +33,30 @@ window.onload = function() {
                 }
             })
         })
+}
+
+function createTODO() {
+    const todo = document.querySelector('input').value;
+    fetch('/todo', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ text: todo, done: false })
+        })
+        .then(() => window.location.reload());
+}
+
+function doneTODO(event) {
+    const { id } = event.target;
+    fetch(`/todo/${id}`, {
+            method: 'PATCH',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ done: true })
+        })
+        .then(() => window.location.reload());
 }

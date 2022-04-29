@@ -1,5 +1,3 @@
-import { createTODO, doneTODO } from './functions';
-
 describe("TODO tests", function() {
     describe.each(fixtures.items)("Commons", (element) => {
         test(`Create a task`, () => {
@@ -16,7 +14,7 @@ describe("TODO tests", function() {
         test(`End a task`, () => {
             doneTODO(element);
 
-            expect().toBe();
+            expect(1).toBe(1);
         })
     })
 });

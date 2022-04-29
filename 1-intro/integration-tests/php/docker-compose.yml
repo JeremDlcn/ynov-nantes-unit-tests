@@ -1,15 +1,25 @@
-version: '3.7'
-
+version: '3'
 services:
-  messenger-backend:
-    container_name: messenger-backend
-    build:
-      context: ./
-      dockerfile: Dockerfile
-    volumes:
-      - ./:/app
+
+  web:
+    image: "docker-node-mongo-todo-app"
+    build: .
+    command: "node server.js"
     ports:
-      - "8080:80"
-    restart: unless-stopped
-    stdin_open: true
-    tty: true
+      - "5000:5000"
+    depends_on:
+      - "mongo"
+    networks:
+      - "project"
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+  
+  mongo:
+    image: "mongo:4.4.6"
+    ports:
+      - "27017:27017"
+    networks:
+      - "project"
+networks:
+  project:
