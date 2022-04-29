@@ -1,0 +1,14 @@
+{
+    "name": "endtoend",
+    "version": "1.0.0",
+    "description": "",
+    "main": "endtoend.test.js",
+    "scripts": {
+        "test": "jest",
+        "serve": "node endtoend.test.js"
+    },
+    "dependencies": {
+        "jest": "^28.0.2",
+        "puppeteer": "^13.7.0"
+    }
+}
