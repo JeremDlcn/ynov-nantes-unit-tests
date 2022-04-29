@@ -1,0 +1,82 @@
+swagger: "2.0"
+info:
+  description: "Project for testing, e2e, unit tests and integration tests"
+  version: "1.0.0"
+  title: "Project Test"
+  license:
+    name: "Apache 2.0"
+    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+host: "localhost:5000"
+basePath: "/v2"
+tags:
+- name: "todo"
+  description: "A todo project"
+  externalDocs:
+    description: "Find out more on Github"
+    url: "https://github.com/JeremDlcn/ynov-nantes-unit-tests"
+schemes:
+  - "https"
+  - "http"
+paths:
+  /todo:
+    get:
+        tags:
+          - todo
+        description: Get todo
+        responses:
+          200:
+            description: Success
+            schema:
+              type: object
+          400:
+            description: Bad request
+            schema:
+              type: object
+    post:
+        tags:
+          - todo
+        description: Create todo
+        parameters:
+        - in: "body"
+          name: "body"
+          required: true
+          schema:
+            type: object
+            properties:
+              text:
+                type: string
+              done:
+                type: boolean
+        responses:
+          201:
+            description: Success
+            schema:
+              type: object
+          400:
+            description: Bad request
+            schema:
+              type: object
+  /todo/id:
+    patch:
+        tags:
+          - todo
+        description: Update todo
+        operationId: "id"
+        parameters:
+        - in: "body"
+          name: "body"
+          required: true
+          schema:
+            type: object
+            properties:
+              _id:
+                type: number
+        responses:
+          200:
+            description: Success
+            schema:
+              type: object
+          400:
+            description: Bad request
+            schema:
+              type: object

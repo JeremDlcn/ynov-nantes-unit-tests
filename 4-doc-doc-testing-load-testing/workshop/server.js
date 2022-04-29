@@ -35,6 +35,7 @@ app.patch('/todo/:id', (req, res) => {
 const mongoose = require('mongoose');
 const ToDo = require('./toDoModel.js').ToDo;
 const DB = 'mongodb://mongo:27017/toDoApp';
+//personal mongodb because DOCKER didn't work
 const DB_URI = 'mongodb+srv://ynovtest:ynovtest@cluster0.jdgyg.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
 
 mongoose.connect(DB_URI).then(() => {

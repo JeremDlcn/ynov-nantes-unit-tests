@@ -6,7 +6,7 @@
     "scripts": {
         "all": "nodemon server.js & jest --watchAll --colors --coverage",
         "test": "jest --watchAll --colors --coverage",
-        "start:dev": "nodemon server.js"
+        "start": "nodemon server.js"
     },
     "author": "",
     "license": "ISC",
@@ -14,8 +14,10 @@
         "body-parser": "^1.18.3",
         "express": "^4.16.4",
         "jest": "^28.0.3",
+        "jest-puppeteer": "^6.1.0",
         "mongoose": "^5.4.1",
         "nodemon": "^1.18.9",
+        "puppeteer": "^13.7.0",
         "supertest": "^6.2.3"
     }
 }
