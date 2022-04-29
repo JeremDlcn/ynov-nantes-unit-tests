@@ -22,20 +22,22 @@ paths:
     get:
         tags:
           - todo
-        description: Get todo
+        description: "See the list of all todos"
         responses:
           200:
             description: Success
             schema:
-              type: object
+              type: array
+              items:
+                $ref: "#/definitions/Todo"
           400:
             description: Bad request
             schema:
-              type: object
+              $ref: "#/definitions/Error"
     post:
         tags:
           - todo
-        description: Create todo
+        description: "Create a new todo item"
         parameters:
         - in: "body"
           name: "body"
@@ -51,32 +53,73 @@ paths:
           201:
             description: Success
             schema:
-              type: object
+              $ref: "#/definitions/Todo"
           400:
             description: Bad request
             schema:
-              type: object
-  /todo/id:
+              $ref: "#/definitions/Error"
+  /todo/{id}:
     patch:
         tags:
           - todo
-        description: Update todo
+        description: "Update a specific todo item"
         operationId: "id"
         parameters:
-        - in: "body"
-          name: "body"
+        - in: "path"
+          name: "id"
           required: true
-          schema:
-            type: object
-            properties:
-              _id:
-                type: number
+          type: "integer"
         responses:
           200:
             description: Success
             schema:
-              type: object
+              $ref: "#/definitions/Todo"
           400:
             description: Bad request
             schema:
-              type: object
+              $ref: "#/definitions/Error"
+
+definitions:
+  Todo:
+    type: "object"
+    properties:
+      done:
+        type: boolean
+      _id:
+        type: string
+      text:
+        type: string
+      _v:
+        type: number
+
+  Error:
+    type: "object"
+    properties:
+      message:
+        type: "string"
+      _message:
+        type: "string"
+      name:
+        type: "string"
+      errors:
+        type: "array"
+        items:  
+          type: "object"
+          properties:
+            message:
+              type: "string"
+            name:
+              type: "string"
+            path:
+              type: "string"
+            kind:
+              type: "string"
+            properties:
+              type: "object"
+              properties:
+                message:
+                  type: "string"
+                type:
+                  type: "string"
+                path:
+                  type: "string"
