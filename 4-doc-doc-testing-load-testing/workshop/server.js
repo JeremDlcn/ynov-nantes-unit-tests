@@ -1,6 +1,8 @@
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
+const ToDo = require('./toDoModel.js');
 
 const PORT = process.env.PORT || 5000;
 const app = express();
@@ -32,8 +34,7 @@ app.patch('/todo/:id', (req, res) => {
     .catch((err) => res.status(400).send(err));
 });
 
-const mongoose = require('mongoose');
-const ToDo = require('./toDoModel.js').ToDo;
+
 const DB = 'mongodb://mongo:27017/toDoApp';
 //personal mongodb because DOCKER didn't work
 const DB_URI = 'mongodb+srv://ynovtest:ynovtest@cluster0.jdgyg.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
@@ -43,4 +44,4 @@ mongoose.connect(DB_URI).then(() => {
   app.listen(PORT);
 });
 
-module.exports = app;
+// module.exports = app;
