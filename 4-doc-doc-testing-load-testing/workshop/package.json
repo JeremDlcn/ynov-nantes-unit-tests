@@ -1,18 +1,21 @@
 {
-  "name": "e-2-e-testing",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "start": "node server.js",
-    "start:dev": "nodemon server.js"
-  },
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "body-parser": "^1.18.3",
-    "express": "^4.16.4",
-    "nodemon": "^1.18.9",
-    "mongoose": "^5.4.1"
-  }
+    "name": "e-2-e-testing",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "all": "nodemon server.js & jest --watchAll --colors --coverage",
+        "test": "jest --watchAll --colors --coverage",
+        "start:dev": "nodemon server.js"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "body-parser": "^1.18.3",
+        "express": "^4.16.4",
+        "jest": "^28.0.3",
+        "mongoose": "^5.4.1",
+        "nodemon": "^1.18.9",
+        "supertest": "^6.2.3"
+    }
 }
