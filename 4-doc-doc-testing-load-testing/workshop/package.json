@@ -5,19 +5,23 @@
     "main": "index.js",
     "scripts": {
         "all": "nodemon server.js & jest --watchAll --colors --coverage",
-        "test": "jest --watchAll --colors --coverage",
-        "start": "nodemon server.js"
+        "test": "jest",
+        "testAll": "jest --watchAll --colors --coverage",
+        "start": "nodemon server.js",
+        "teste2e": "codeceptjs run"
     },
     "author": "",
     "license": "ISC",
     "dependencies": {
         "body-parser": "^1.18.3",
+        "codeceptjs": "^3.3.0",
         "express": "^4.16.4",
         "jest": "^28.0.3",
-        "jest-puppeteer": "^6.1.0",
+        "mockingoose": "^2.15.2",
         "mongoose": "^5.4.1",
         "nodemon": "^1.18.9",
-        "puppeteer": "^13.7.0",
-        "supertest": "^6.2.3"
+        "playwright": "^1.19.1",
+        "supertest": "^6.2.3",
+        "webdriverio": "^6.12.1"
     }
 }
