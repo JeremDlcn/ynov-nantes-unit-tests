@@ -3,14 +3,15 @@ const URL = `http://localhost:5000/`;
 Feature('End to end test');
 
 Scenario('test if the todo is done', async ({ I }) => {
+    const testText = 'Tests & Documentations';
     I.amOnPage(URL);
-    I.fillField('#newTODO', 'Tests & Documentations');
+    I.fillField('#newTODO', testText);
     I.click('#create-todo');
     
-    I.see('Tests & Documentations', '#todo-body')
+    I.see(testText, '#todo-body')
     I.click('#todo-body tr:last-of-type button')
 
-    I.waitForText('Tests & Documentations', '#done-body')
+    I.waitForText(testText, '#done-body')
 });
 
 Scenario('test if the todo is saved', async ({ I }) => {
