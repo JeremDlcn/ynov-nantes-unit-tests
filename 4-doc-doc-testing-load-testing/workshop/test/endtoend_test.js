@@ -4,13 +4,13 @@ Feature('End to end test');
 
 Scenario('test if the todo is done', async ({ I }) => {
     I.amOnPage(URL);
-    I.wait(1);
-    I.waitForElement('#todo-body');
+    I.fillField('#newTODO', 'Tests & Documentations');
+    I.click('#create-todo');
+    
+    I.see('Tests & Documentations', '#todo-body')
+    I.click('#todo-body tr:last-of-type button')
 
-    const text = I.grabTextFrom('#todo-body tr:last-of-type td');
-    I.click('#todo-body tr:last-of-type .btn');
-
-    I.waitForText(text, '#done-body');
+    I.waitForText('Tests & Documentations', '#done-body')
 });
 
 Scenario('test if the todo is saved', async ({ I }) => {
