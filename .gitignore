@@ -2,3 +2,6 @@
 **/__pycache__
 **/vendor
 **/coverage
+*.png
+*.png
+4-doc-doc-testing-load-testing/workshop/dist/test_if_the_todo_is_saved.failed.png
